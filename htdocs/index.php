@@ -61,7 +61,7 @@
 	flush();
 
 ?>
-<?php if (!isset($ini[$stream])): ?>
+<?php if ($ini[$stream]['state'] == 'Offline'): ?>
     <script>document.documentElement.classList.add('nostream');</script>
 <?php endif; ?>
 <?php if (isStreamActive($ini, 1) or isStreamActive($ini, 2) or isStreamActive($ini, 3) or isStreamActive($ini, 4)): ?>
