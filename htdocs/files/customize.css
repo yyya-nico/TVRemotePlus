@@ -1,0 +1,38 @@
+.nostream ~ #content-wrap,
+.nostream ~ #dplayer,
+.nostream ~ * #dplayer,
+.nostream ~ * #epg-box,
+#stream-view-box,
+#broadcast-tab-box {
+    display: none;
+}
+
+.nooffline ~ * #stream-view-box{
+    display: flex;
+}
+
+.broadcast-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    grid-gap: 16px;
+}
+
+@media (max-width: 400px){
+    .broadcast-nav {
+        grid-template-columns: 1fr;
+    }
+}
+
+.broadcast-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #F7F7F7;
+}
+
+.dark-theme .broadcast-wrap:not(:hover) {
+    background: #1F2F40;
+}
+
+.progressbar {
+    margin-bottom: 0;
+}

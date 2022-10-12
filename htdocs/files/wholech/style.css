@@ -1,0 +1,267 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;           /* 1 */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #EFEFEF;
+    background: #111;
+}
+
+#wrap {
+    height: 100%;           /* 1 */
+    display: flex;          
+    justify-content: center;
+    align-items: center;
+}
+
+#wrap.hide, #wrap.hide * {
+    cursor: none;
+}
+
+pre:empty {
+    padding: 0;
+}
+
+pre {
+    margin: 0;
+    padding: 20px 50px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#chlist {
+    width: 177.78vh;
+    max-width: 100%;
+    height: 56.25vw;
+    max-height: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#chlist.choiced {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#chlist > .chframe {
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#chlist.choiced > .chframe.listening {
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+}
+
+/*
+#chlist > .chframe:nth-child(1) {transform-origin: top left;}
+#chlist > .chframe:nth-child(2) {transform-origin: top;}
+#chlist > .chframe:nth-child(3) {transform-origin: top right;}
+#chlist > .chframe:nth-child(4) {transform-origin: left;}
+#chlist > .chframe:nth-child(5) {transform-origin: center;}
+#chlist > .chframe:nth-child(6) {transform-origin: right;}
+#chlist > .chframe:nth-child(7) {transform-origin: bottom left;}
+#chlist > .chframe:nth-child(8) {transform-origin: bottom;}
+#chlist > .chframe:nth-child(9) {transform-origin: bottom right;}
+*/
+
+.chframe video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.chframe .broadcast-wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: medium;
+    visibility: visible;
+    opacity: 1;
+    transition: .3s;
+}
+
+.chframe .broadcast-wrap.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.chframe .broadcast-channel-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-shadow: 0px 0px 1px #000, 1px 1px 2px #000;
+}
+
+.chframe .broadcast-channel {
+    display: inline-block;
+    width: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 80%;
+}
+
+.chframe .broadcast-logo {
+    height: 1em;
+    vertical-align: middle;
+}
+
+.chframe .broadcast-mute {
+    color: #ff9;
+}
+
+.chframe .broadcast-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 1.2;
+    height: 1.2em;
+    background: rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.chframe .broadcast-title.expand {
+    height: calc(1.2em * 3);
+}
+
+.chframe .broadcast-time {
+    position: absolute;
+    top: 3em;
+    right: 0;
+    font-size: small;
+}
+
+#control {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: .3s;
+    user-select: none;
+}
+
+#control.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#control > * {
+    display: inline-block;
+}
+
+#control a, #control button, #control .togglesw {
+    min-width: 40px;
+    height: 40px;
+    background: transparent;
+    color: #EFEFEF;
+    border: none;
+    vertical-align: middle;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#control > a {
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.togglesw {
+    position: relative;
+}
+
+.togglesw input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.togglesw label {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 40px;
+    transition: 0.2s;
+}
+
+#control .togglesw :checked ~ label {
+    color: #2d96ff;
+}
+
+#control > form {
+    display: inline-block;
+}
+
+#control > *:hover, #control > form > *:hover {
+    opacity: 1;
+}
+
+.mark {
+    position: relative;
+    border: 1px solid #FFFFFF;
+    font-family: "HG丸ｺﾞｼｯｸM-PRO","Segoe UI","Arial",sans-serif;
+    font-weight: bold;
+    font-size: 80%;
+    color: #FFFFFF;
+    margin: 1px 3px;
+    padding: 1px;
+    border-radius: 3px;
+    bottom: 1.3px;
+    z-index: 1;
+}
+
+@media (orientation: portrait),screen and (max-width: 480px) {
+    html,body,#wrap{
+        height: auto;
+    }
+
+    #chlist, #chlist.choiced {
+        height: auto;
+        max-height: none;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    #chlist.choiced > .chframe.listening {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    #control {
+        margin: 10px;
+        background: rgba(64, 64, 64, 0.8);
+        border-radius: 3px;
+    }
+
+    #control.slide{
+        transform: translateY(-60px);
+    }
+
+    #control > *, #control > form > button {
+        display: inline-block;
+    }
+
+    #control a, #control button, #control label {
+        padding: 1px 6px;
+    }
+}
