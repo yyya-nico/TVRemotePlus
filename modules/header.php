@@ -52,6 +52,7 @@
 <?php
 	if (strpos($backtrace[0]['file'], 'index.php') !== false) { // index.php のみ
 		echo '  <link rel="stylesheet" type="text/css" href="/files/swiper.min.css">'."\n";
+		echo '  <link rel="stylesheet" type="text/css" href="/files/customize.css">'."\n";
 	}
 	if (strpos($backtrace[0]['file'], 'watch.php') !== false) { // watch.php のみ
 		echo '  <link rel="stylesheet" type="text/css" href="/files/watch.css?'.$version.'">'."\n";
@@ -93,7 +94,7 @@
 
     // 個人設定の初期値
     settings = {
-        twitter_show: true,
+        twitter_show: false,
         comment_show: true,
         dark_theme: matchMedia('(prefers-color-scheme: dark)').matches,  // ダークモードなら true になる
         subchannel_show: false,
@@ -275,6 +276,10 @@
         <span class="nav-link-href">全てのストリームを終了</span>
       </a>
     </form>
+    <a class="nav-link" href="/wholech/">
+      <i class="fas fa-table"></i>
+      <span class="nav-link-href">まるごとchに移動</span>
+    </a>
     <a class="nav-link" href="/watch/">
       <i class="fas fa-video"></i>
       <span class="nav-link-href">録画番組を再生</span>
