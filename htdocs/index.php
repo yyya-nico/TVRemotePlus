@@ -61,6 +61,12 @@
 	flush();
 
 ?>
+<?php if (!isset($ini[$stream])): ?>
+    <script>document.documentElement.classList.add('nostream');</script>
+<?php endif; ?>
+<?php if (isStreamActive($ini, 1) or isStreamActive($ini, 2) or isStreamActive($ini, 3) or isStreamActive($ini, 4)): ?>
+    <script>document.documentElement.classList.add('nooffline');</script>
+<?php endif; ?>
 
     <div id="content-wrap">
       <div id="content">

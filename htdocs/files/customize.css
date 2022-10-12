@@ -1,13 +1,12 @@
-.nostream ~ #content-wrap,
-.nostream ~ #dplayer,
-.nostream ~ * #dplayer,
-.nostream ~ * #epg-box,
+.nostream #content-wrap,
+.nostream #dplayer,
+.nostream #epg-box,
 #stream-view-box,
 #broadcast-tab-box {
     display: none;
 }
 
-.nooffline ~ * #stream-view-box{
+.nooffline #stream-view-box{
     display: flex;
 }
 
@@ -26,6 +25,9 @@
 .broadcast-wrap {
     border-radius: 16px;
     overflow: hidden;
+}
+
+.broadcast-wrap:not(:hover) {
     background: #F7F7F7;
 }
 
